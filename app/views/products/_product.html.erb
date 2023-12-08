@@ -1,0 +1,43 @@
+<div class="px">
+  <div class="slideshow-container">
+    <% if product.product_images.attached? %>
+      <% product.product_images.each_with_index do |product_image, index| %>
+          <div class="mySlides_<%= product.id %> fade px-5">
+            <div class="image_container">
+              <%= image_tag product_image , class: 'wm-100 hm-100' %>
+            </div>
+          </div>
+          <script>
+            showSlides('<%= product.id %>');
+          </script>
+        <% end %>
+      <% end %>
+    <a class="prev" onclick="prevSlide('<%= product.id %>')">❮</a>
+    <a class="next" onclick="nextSlide('<%= product.id %>')">❯</a>
+  </div>
+</div>
+<div class="px">
+  <p class="center-text">
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p class="center-text">
+    <strong>price:</strong>
+    <%= product.price %>
+  </p>
+
+  <p class="center-text">
+    <strong>discount :</strong>
+    <%= product.discount %>
+  </p>
+
+  <p class="center-text">
+  <strong>Description:</strong>
+  <%= product.description %>
+  </p>
+
+  <p class="center-text">
+    <%= link_to "Show More", product %>
+  </p>
+</div>

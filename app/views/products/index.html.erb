@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "card" %>
+<p style="color: green"><%= notice %></p>
+
+<h1>Products</h1>
+<h3>
+<%= link_to "Add New product", new_product_path %>
+</h3>
+
+<div class="row"  id="products">
+  <% @products.each do |product| %>
+    <div class="mx card_size">
+      <div class="card h-100">
+        <%= render product %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
